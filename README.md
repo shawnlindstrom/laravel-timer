@@ -40,7 +40,7 @@ Timer::start();
 // do something useful ...
 Timer::stop();
 
-echo SW::elapsed(TimeUnit::MICROSECONDS);
+echo Timer::elapsed(TimeUnit::MICROSECONDS);
 // 
 ```
 
