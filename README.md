@@ -1,7 +1,9 @@
 # laravel-timer
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
+
+![Packagist](https://img.shields.io/packagist/v/shawnlindstrom/laravel-timer.svg)
+![Packagist](https://img.shields.io/packagist/l/shawnlindstrom/laravel-timer.svg)
+
 
 This simple package provides high-resolution, monotonic time when available (PHP >=7.3) for all
 your timing needs.
