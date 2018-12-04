@@ -1,0 +1,43 @@
+{
+    "name": "shawnlindstrom/laravel-timer",
+    "description": ":description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shawn Lindstrom",
+            "email": "shawn@tenerant.com",
+            "homepage": "https://tenerant.com"
+        }
+    ],
+    "homepage": "https://github.com/shawnlindstrom/laravel-timer",
+    "keywords": ["Laravel", "laravel-timer"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "shawnlindstrom\\LaravelTimer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "shawnlindstrom\\LaravelTimer\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "shawnlindstrom\\LaravelTimer\\LaravelTimerServiceProvider"
+            ],
+            "aliases": {
+                "Timer": "shawnlindstrom\\LaravelTimer\\TimerFacade"
+            }
+        }
+    }
+}
