@@ -34,9 +34,9 @@ $timer->elapsed(TimeUnit::NANOSECONDS);
 ```
 Via Facade:
 ``` php
-SW::start();
+Timer::start();
 // do something useful ...
-SW::stop();
+Timer::stop();
 
 echo SW::elapsed(TimeUnit::MICROSECONDS);
 // 
