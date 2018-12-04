@@ -41,7 +41,7 @@ Timer::start();
 Timer::stop();
 
 echo Timer::elapsed(TimeUnit::MICROSECONDS);
-// 
+
 ```
 
 ## Change log
@@ -64,15 +64,3 @@ If you discover any security related issues, please email shawn@tenerant.com ins
 ## License
 
 MIT. Please see the [license file](LICENSE.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/shawnlindstrom/laravel-stopwatch.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/shawnlindstrom/laravel-stopwatch.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/shawnlindstrom/laravel-stopwatch/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
-
-[link-packagist]: https://packagist.org/packages/shawnlindstrom/laravel-stopwatch
-[link-downloads]: https://packagist.org/packages/shawnlindstrom/laravel-stopwatch
-[link-travis]: https://travis-ci.org/shawnlindstrom/laravel-stopwatch
-[link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/shawnlindstrom
-[link-contributors]: ../../contributors]
