@@ -1,9 +1,7 @@
-# laravel-stopwatch
+# laravel-timer
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
 
 This simple package provides high-resolution, monotonic time when available (PHP >=7.3) for all
 your timing needs.
