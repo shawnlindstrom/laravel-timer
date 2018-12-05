@@ -2,8 +2,6 @@
 
 namespace shawnlindstrom\LaravelTimer;
 
-use shawnlindstrom\LaravelTimer\TimeUnit;
-
 class Timer
 {
     private $start_time;
