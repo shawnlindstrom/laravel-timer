@@ -48,6 +48,12 @@ echo Timer::elapsed(TimeUnit::MICROSECONDS);
 
 Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
 
+## Testing
+
+```
+composer test
+```
+
 ## Contributing
 
 Please see [contributing.md](CONTRIBUTING.md) for details and a todolist.
