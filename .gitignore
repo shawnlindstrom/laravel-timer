@@ -1,2 +1,7 @@
 /vendor
 composer.lock
+/coverage
+/.phpunit.cache
+/.phpstan.cache
+.DS_Store
+Thumbs.db

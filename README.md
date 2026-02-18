@@ -1,62 +1,156 @@
-# laravel-timer
-
+# Laravel Timer
 
 ![Packagist](https://img.shields.io/packagist/v/shawnlindstrom/laravel-timer.svg)
 ![Packagist](https://img.shields.io/packagist/l/shawnlindstrom/laravel-timer.svg)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
+![PHP](https://img.shields.io/badge/PHP-8.3%2B-blue.svg)
+![Laravel](https://img.shields.io/badge/Laravel-12.x-red.svg)
 
+A modern, high-resolution monotonic timer for Laravel applications. Perfect for benchmarking, performance measurement, and precise timing operations.
 
-This simple package provides high-resolution, monotonic time when available (PHP >=7.3) for all
-your timing needs.
+## Features
+
+- 🚀 High-resolution timing using `hrtime()`
+- ⏱️ Multiple time units (seconds, milliseconds, microseconds, nanoseconds)
+- 🎯 Type-safe with PHP 8.3+ enums
+- 📊 Laravel service provider & facade support
+- ✅ 90%+ test coverage
+- 🔒 Strict types throughout
+
+## Requirements
+
+- PHP 8.3 or higher
+- Laravel 12.x
 
 ## Installation
 
-Via Composer
+Install via Composer:
 
-``` bash
-$ composer require shawnlindstrom/laravel-timer
+```bash
+composer require shawnlindstrom/laravel-timer
 ```
+
+The package will automatically register itself via Laravel's package discovery.
 
 ## Usage
 
-New up an instance:
+### Basic Usage
 
-``` php
-$timer = new \shawnlindstrom\Timer;
-$timer->start(); 
-// do something useful ...
+```php
+use shawnlindstrom\LaravelTimer\Timer;
+use shawnlindstrom\LaravelTimer\TimeUnit;
+
+$timer = new Timer;
+$timer->start();
+
+// Your code to benchmark
+sleep(2);
+
 $timer->stop();
 
-echo $timer->elapsed(); // default precision is seconds
-// 2
+echo $timer->elapsed(); // Returns: 2 (default is seconds)
 ```
-Elapsed time can be returned in seconds, microseconds, milliseconds, or nanoseconds:
 
-``` php
-$timer->elapsed(TimeUnit::NANOSECONDS);
+### Different Time Units
+
+```php
+$timer = new Timer;
+$timer->start();
+
+// Your code here...
+
+$timer->stop();
+
+// Get elapsed time in different units
+$seconds = $timer->elapsed(TimeUnit::SECOND);           // 2
+$microseconds = $timer->elapsed(TimeUnit::MICROSECOND); // 2000
+$milliseconds = $timer->elapsed(TimeUnit::MILLISECOND); // 2000000
+$nanoseconds = $timer->elapsed(TimeUnit::NANOSECOND);   // 2000000000
 ```
-Via Facade:
-``` php
+
+### Using the Facade
+
+```php
+use shawnlindstrom\LaravelTimer\TimerFacade as Timer;
+use shawnlindstrom\LaravelTimer\TimeUnit;
+
 Timer::start();
-// do something useful ...
+
+// Your code to benchmark...
+
 Timer::stop();
 
-echo Timer::elapsed(TimeUnit::MICROSECONDS);
-
+echo Timer::elapsed(TimeUnit::MICROSECOND);
 ```
 
-## Change log
+### Alias Usage
 
-Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
+If you prefer, you can use the pre-configured alias:
+
+```php
+use Timer;
+use shawnlindstrom\LaravelTimer\TimeUnit;
+
+Timer::start();
+// Your code...
+Timer::stop();
+
+echo Timer::elapsed(TimeUnit::MILLISECOND);
+```
+
+### Reusable Measurements
+
+The timer can be reused for multiple measurements:
+
+```php
+$timer = new Timer;
+
+// First measurement
+$timer->start();
+performTask1();
+$timer->stop();
+$time1 = $timer->elapsed();
+
+// Second measurement
+$timer->start();
+performTask2();
+$timer->stop();
+$time2 = $timer->elapsed();
+```
 
 ## Testing
 
-```
+Run the test suite:
+
+```bash
 composer test
 ```
 
+Generate code coverage report:
+
+```bash
+composer test:coverage
+```
+
+Run static analysis:
+
+```bash
+composer analyse
+```
+
+Format code:
+
+```bash
+composer format
+```
+
+## Change Log
+
+Please see [CHANGELOG.md](CHANGELOG.md) for more information on what has changed recently.
+
 ## Contributing
 
-Please see [contributing.md](CONTRIBUTING.md) for details and a todolist.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Security
 
@@ -64,9 +158,9 @@ If you discover any security related issues, please email shawn@tenerant.com ins
 
 ## Credits
 
-- [Shawn Lindstrom][link-author]
-- [All Contributors][link-contributors]
+- [Shawn Lindstrom](https://github.com/shawnlindstrom)
+- [All Contributors](../../contributors)
 
 ## License
 
-MIT. Please see the [license file](LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE.md](LICENSE.md) for more information.

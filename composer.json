@@ -1,6 +1,6 @@
 {
     "name": "shawnlindstrom/laravel-timer",
-    "description": ":description",
+    "description": "Simple high-resolution monotonic timer",
     "license": "MIT",
     "authors": [
         {
@@ -10,15 +10,17 @@
         }
     ],
     "homepage": "https://github.com/shawnlindstrom/laravel-timer",
-    "keywords": ["Laravel", "laravel-timer"],
+    "keywords": ["Laravel", "laravel-timer", "timer", "benchmark", "performance"],
     "require": {
-        "illuminate/support": "~5"
+        "php": "^8.3",
+        "illuminate/support": "^12.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~7.0",
-        "mockery/mockery": "^1.1",
-        "orchestra/testbench": "~3.0",
-        "sempro/phpunit-pretty-print": "^1.0"
+        "phpunit/phpunit": "^11.0",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^10.0",
+        "phpstan/phpstan": "^2.0",
+        "laravel/pint": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -27,12 +29,22 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "shawnlindstrom\\LaravelTimer\\Tests\\": "tests"
+            "shawnlindstrom\\LaravelTimer\\Tests\\": "tests/"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit",
+        "test:coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint"
     },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [

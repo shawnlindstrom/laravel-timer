@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace shawnlindstrom\LaravelTimer;
 
 use Illuminate\Support\ServiceProvider;
@@ -7,45 +9,20 @@ use Illuminate\Support\ServiceProvider;
 class LaravelTimerServiceProvider extends ServiceProvider
 {
     /**
-     * Perform post-registration booting of services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
      * Register any package services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
-        // Register the service the package provides.
-        $this->app->singleton(Timer::class, function ($app) {
-            return new Timer;
-        });
+        $this->app->singleton(Timer::class, fn () => new Timer);
     }
 
     /**
      * Get the services provided by the provider.
      *
-     * @return string
+     * @return array<int, string>
      */
-    public function provides()
+    public function provides(): array
     {
-        return Timer::class;
-    }
-    
-    /**
-     * Console-specific booting.
-     *
-     * @return void
-     */
-    protected function bootForConsole()
-    {
-        //
+        return [Timer::class];
     }
 }
